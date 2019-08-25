@@ -1,0 +1,46 @@
+@import "../../assets/sass/variables";
+
+.container {
+    width: 60%
+}
+h1 {
+    font-size: 2rem;
+    font-style: italic;
+    text-align: center;
+}
+h2 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+input:-webkit-autofill {
+    -webkit-text-fill-color: $color-3 !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    transition: white 5000s ease-in-out 0s !important;
+}
+.text-danger {
+    color:  white !important; 
+    background-color: $color-2 ;
+    padding: 2px 5px;
+    border-radius: 5px;
+    display: block;
+}
+.bg-foto {
+    min-height: 86vh;
+}
+.alert {
+    color: white !important;
+}
+.alert-success {
+    background-color: darkgreen;
+}
+.alert-warning {
+    background-color: $color-2;
+}   
+.alert-danger {
+    background-color: $color-1;
+}
+@media (max-width: 991px) {
+    .container {
+       width: 80%
+    }
+}

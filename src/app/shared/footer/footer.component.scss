@@ -1,0 +1,24 @@
+footer {
+    position: relative;
+    font-size: 0.8rem;
+    margin-top: -2rem;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.logo-bcp {
+   max-width: 70px;
+   height: auto;
+   background-color: white;
+   padding: 5px;
+   border-radius: 20px 5px;
+}
+@media (max-width: 767px) {
+    footer {
+        text-align: center;
+    }
+}
+@media (max-width: 992px) {
+    footer {
+        margin-top: 1rem;
+    }
+}

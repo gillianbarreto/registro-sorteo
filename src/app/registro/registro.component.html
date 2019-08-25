@@ -1,0 +1,100 @@
+<div class="wrapper">
+  <div class="container">
+
+    <!-- mensaje de error -->
+    <div *ngIf='messageAlert' class="alert alert-dismissible animated bounceIn {{ this.classAlert }}" role="alert">
+      {{ messageAlert }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span class="pt-1 pr-1" aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <!-- Formulario de Registro -->
+    <div class="row" *ngIf="!registred">
+
+      <div class="col-md-5 my-auto">
+        <h1>Déjale tus datos al capitán</h1>
+        <form #signUpForm="ngForm" id="signUpForm" class="mx-auto animated bounceIn" (ngSubmit)="sendData(signUpForm)"
+          novalidate>
+          <div class="col-12">
+            <div class="form-group">
+              <input type="text" class="form-control" id="nombres" name="nombres" autofocus [ngModel]="data.nombres"
+                #nombres="ngModel" required pattern="([A-Za-zñÁÉÍÓÚáéíóúü]{2,24}[\s]*){2,5}"
+                placeholder="Nombres y Apellidos *">
+              <span class="text-danger small" *ngIf="!nombres.valid && nombres.touched">
+                Escribe tu nombre y apellidos
+              </span>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <select class="form-control" id="tipoDocumento" name="tipoDocumento" [ngModel]="data.tipoDocumento"
+                #tipoDocumento="ngModel" required (change)="changePattern(tipoDocumento.value)">
+                <option value="DNI">DNI</option>
+                <option value="CARNET_EXTRANJERIA">Carnet Extranjería</option>
+                <option value="PASAPORTE">Pasaporte</option>
+              </select>
+              <span class="text-danger small" *ngIf="!tipoDocumento.valid && tipoDocumento.touched">
+                Debe seleccionar un valor de la Lista
+              </span>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <input type="text" class="form-control" id="numeroDocumento" name="numeroDocumento"
+                [ngModel]="data.numeroDocumento" #numeroDocumento="ngModel" required [pattern]="documentPattern"
+                placeholder="Número de Documento">
+              <span class="text-danger small" *ngIf="!numeroDocumento.valid && numeroDocumento.touched">
+                {{ documentError }}
+              </span>
+            </div>
+          </div>
+          <div class="form-group col-md-12">
+            <input type="tel" class="form-control" id="telefono" name="telefono" [ngModel]="data.telefono"
+              #telefono="ngModel" required pattern="[0-9]{9}" placeholder="Celular *">
+            <span class="text-danger small" *ngIf="!telefono.valid && telefono.touched">
+              El número de celular debe tener 9 dígitos
+            </span>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <input type="email" class="form-control" id="correo" name="correo" [ngModel]="data.correo"
+                #correo="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                placeholder="e-mail *">
+              <span class="text-danger small" *ngIf="!correo.valid && correo.touched">
+                Escribe un email válido
+              </span>
+            </div>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary w-100" [ngClass]="{ 'disabled': !signUpForm.valid }"
+              [disabled]="!signUpForm.valid">
+              <i class="fa fa-spinner fa-spin" aria-hidden="true" *ngIf="spinner"></i>
+              Regístrate
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Foto Paolo Guerrero -->
+      <div class="col-md-7 bg-foto d-flex align-items-end">
+        <img src="../../../assets/img/fotoPaoloRegistro.png" class="img-fluid mx-auto" alt="Paolo Guerrero">
+      </div>
+    </div>
+
+    <!-- Mensaje de Confirmación de Registro -->
+    <div class="row" *ngIf="registred">
+      <div class="col-md-6 bg-foto d-flex align-items-end">
+        <img src="../../../assets/img/fotoPaoloConfirmacion.png" class="img-fluid"
+          alt="Entrena con el Capitán Paolo Guerero">
+      </div>
+      <div class="col-md-6 my-auto animated bounceIn">
+        <h1>¡Ya estás participando!</h1>
+        <p>Tú puedes ser uno de los hinchas que conocerá al Capitán o de los que ganarán grandes premios.</p>
+        <h2>¡Mucha Suerte!</h2>
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,70 @@
+@import "variables";
+@font-face {
+    font-family: Flexo;
+    src: url("../font/flexo/Durotype-Flexo-Regular.otf" );
+}
+
+// Layout 
+body {
+    color: white;
+    background-color: #1c1c1c;
+    font-family: 'Flexo', sans-serif;
+}
+.wrapper {
+    min-height: 86vh;
+}
+.container {
+    min-height: 86vh;
+}
+.container-align {
+    position:relative !important;
+}
+.bottom-aligned {
+    position:absolute;
+    bottom:0;
+    right: 0;
+}
+.alto {
+    min-height: 86vh;
+}
+// Fondos
+.cover {
+    background: white url("../img/bgHome.jpg") center top no-repeat;
+    background-size: cover;
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+}
+.cover-home {
+    background-image: url("../img/bgHome.jpg");
+}
+.cover-registro {
+    background-image: url("../img/bgRegistro.jpg");
+}
+.cover-premios {
+    background-image: url("../img/bgPremios.jpg");
+}
+.cover-respuesta {
+    background-image: url("../img/bgRespuesta.jpg");
+}
+// 
+*:focus {
+    outline: none;
+}
+a {
+    color: white;
+    font-weight: bold;
+}
+a:hover {
+    text-decoration: none;
+}
+// 
+.btn-primary {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+
+
